@@ -21,7 +21,7 @@
 15. [Перенаправление ввода/вывода](#)
 ## Упpавление теpминальным вводом/выводом
 16. [Ответ без ввода новой строки](https://github.com/Dross0/OS/tree/master/Answer%20without%20entering%20a%20new%20line)
-17. [Строчный редактор](#)
+17. [Строчный редактор](https://github.com/Dross0/OS/tree/master/line_editor)
 ## Управление файлами
 18. [Листинг каталога](https://github.com/Dross0/OS/tree/master/ls)
 ## Управление каталогами
