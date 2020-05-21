@@ -25,8 +25,8 @@
 ## Управление файлами
 18. [Листинг каталога](https://github.com/Dross0/OS/tree/master/ls)
 ## Управление каталогами
-19. [Шаблоны имен файлов](#)
-20. [Шаблоны имен файлов 2](#)
+19. [Шаблоны имен файлов](https://github.com/Dross0/OS/tree/master/File%20name%20template%201)
+20. [Шаблоны имен файлов 2](https://github.com/Dross0/OS/tree/master/File%20name%20template%202)
 ## Сигналы
 21. [Пищалка](https://github.com/Dross0/OS/tree/master/Squeaker)
 22. [Мультиплексирование ввода](#)
