@@ -39,7 +39,7 @@
 28. [Генератор случайных чисел](https://github.com/Dross0/OS/tree/master/Random%20number%20generator)
 29. [Конвейеры](#)
 ## Сокеты
-30. [Связь через Unix domain socket](#)
+30. [Связь через Unix domain socket](https://github.com/Dross0/OS/tree/master/Socket)
 31. [Связь нескольких процессов через Unix domain socket](#)
 32. [Асинхронный ввод-вывод](#)
 33. [Прокси-сервер](#)
