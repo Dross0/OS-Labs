@@ -21,13 +21,11 @@ void add_client(struct aiocb * clients[], int clientSocket, char * buffer, size_
     readrq->aio_fildes = clientSocket;
     readrq->aio_buf = buffer;
     readrq->aio_nbytes = buffer_size;
-    
     readrq->aio_lio_opcode = LIO_READ;
-    struct sigevent * sig = (struct sigevent *)malloc(sizeof(struct sigevent));
-    sig->sigev_notify = SIGEV_SIGNAL;
-    sig->sigev_signo = SIGIO;
-    sig->sigev_value.sival_ptr = readrq;
-    readrq->aio_sigevent = *sig;
+    readrq->aio_sigevent.sigev_notify = SIGEV_SIGNAL;
+    readrq->aio_sigevent.sigev_signo = SIGIO;
+    readrq->aio_sigevent.sigev_value.sival_ptr = readrq;
+    
 
     int firstEmpty = 0;
     for (; clients[firstEmpty]; ++firstEmpty);
@@ -51,7 +49,6 @@ void deleteClient(struct aiocb * request){
             }
             readfds[MAX_CLIENTS - 1] = NULL;
             clientsAmount--;
-            free(&(request->aio_sigevent));
             free(request);
             return;
         }
