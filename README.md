@@ -15,10 +15,10 @@
 9. [Создание двух процессов](https://github.com/Dross0/OS/tree/master/Creation%20of%20two%20processes)
 10. [Код завершения команды](https://github.com/Dross0/OS/tree/master/Command%20return%20code)
 11. [Функция execvpe()](https://github.com/Dross0/OS/tree/master/execvpe)
-12. [Командный интерпретатор shell ](#)
-13. [Исполнение команд](#)
-14. [Исполнение в фоновом режиме](#)
-15. [Перенаправление ввода/вывода](#)
+12. ~~[Командный интерпретатор shell ](#)~~
+13. ~~[Исполнение команд](#)~~
+14. ~~[Исполнение в фоновом режиме](#)~~
+15. ~~[Перенаправление ввода/вывода](#)~~
 ## Упpавление теpминальным вводом/выводом
 16. [Ответ без ввода новой строки](https://github.com/Dross0/OS/tree/master/Answer%20without%20entering%20a%20new%20line)
 17. [Строчный редактор](https://github.com/Dross0/OS/tree/master/line_editor)
@@ -29,21 +29,21 @@
 20. [Шаблоны имен файлов 2](https://github.com/Dross0/OS/tree/master/File%20name%20template%202)
 ## Сигналы
 21. [Пищалка](https://github.com/Dross0/OS/tree/master/Squeaker)
-22. [Мультиплексирование ввода](#)
-23. [Защита от сигналов, посылаемых с терминала ](#)
-24. [Простое управление заданиями](#)
+22. [Мультиплексирование ввода](https://github.com/Dross0/OS/tree/master/Multiplexing%20IO)
+23. ~~[Защита от сигналов, посылаемых с терминала ](#)~~
+24. ~~[Простое управление заданиями](#)~~
 ## Программные каналы
 25. [Связь через программный канал](https://github.com/Dross0/OS/tree/master/Communication%20with%20pipe())
 26. [Связь с использованием функций стандартной библиотеки](https://github.com/Dross0/OS/tree/master/Communication%20with%20popen()%2C%20pclose())
 27. [Подсчет пустых строк в файле](https://github.com/Dross0/OS/tree/master/Counting%20blank%20lines)
 28. [Генератор случайных чисел](https://github.com/Dross0/OS/tree/master/Random%20number%20generator)
-29. [Конвейеры](#)
+29. ~~[Конвейеры](#)~~
 ## Сокеты
 30. [Связь через Unix domain socket](https://github.com/Dross0/OS/tree/master/Socket)
-31. [Связь нескольких процессов через Unix domain socket](#)
-32. [Асинхронный ввод-вывод](#)
-33. [Прокси-сервер](#)
-34. [Проброс порта](#)
-35. [Проброс порта](#)
-36. [Псевдомногопоточный HTTP-клиент](#)
-37. [Псевдомногопоточный HTTP-клиент 2](#)
+31. [Связь нескольких процессов через Unix domain socket](https://github.com/Dross0/OS/tree/master/Multiply%20access%20socket)
+32. [Асинхронный ввод-вывод](https://github.com/Dross0/OS/tree/master/Async%20IO%20socket)
+33. ~~[Прокси-сервер](#)~~
+34. ~~[Проброс порта](#)~~
+35. ~~[Проброс порта](#)~~
+36. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
+37. ~~[Псевдомногопоточный HTTP-клиент 2](#)~~
