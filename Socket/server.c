@@ -1,5 +1,6 @@
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -20,7 +21,6 @@ int main(int argc, char ** argv){
     sockAddress.sun_family = AF_UNIX;
     int addressLen = strlen(ADDRESS);
     strncpy(sockAddress.sun_path, ADDRESS, addressLen);
-    unlink(ADDRESS);
     if (bind(sockfd, (struct sockaddr*) &sockAddress, sizeof(sockAddress)) < 0){
         perror("bind");
         return 2;
@@ -40,8 +40,12 @@ int main(int argc, char ** argv){
     int strSize = 0;
     while ((strSize = read(clientSock, buffer, BUFFER_SIZE))){
         buffer[strSize] = 0;
-        printf("%s\n", buffer);
+        for (int i = 0; i < strSize; ++i){
+            printf("%c", toupper(buffer[i]));
+        }
+        printf("\n");
     }
     close(clientSock);
+    unlink(ADDRESS);
     return 0;
 }

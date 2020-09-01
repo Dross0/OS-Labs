@@ -142,7 +142,7 @@ int main(int argc, char ** argv){
         perror("opendir");
         return 2;
     }
-    print_templates_files(dir, dirPath, tmp, 0);
+    print_templates_files(dir, dirPath, template, 0);
     closedir(dir);
     return 0;
 }

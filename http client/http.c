@@ -11,6 +11,10 @@
 #define WRONG_ARGUMENTS 1
 #define CANT_PARSE_URL 2
 #define CONNECT_FAILURE 3
+#define SOCKET_INPUT_ERROR 4
+#define STDIN_INPUT_ERROR 5
+#define POLL_FAILURE 6
+#define SEND_FAILURE 7
 
 #define POLL_SIZE 2
 #define REQUEST_SIZE 256
@@ -39,6 +43,11 @@ void free_buffers(char ** buffers){
     for (i = 0; i < MAX_BUFFERS; ++i){
         free(buffers[i]);
     }
+}
+
+void clear_before_exit(char ** buffers, struct termios * old){
+    free_buffers(buffers);
+    tcsetattr(STDIN_FILENO, TCSANOW, old);
 }
 
 int main(int argc, char ** argv){
@@ -83,7 +92,7 @@ int main(int argc, char ** argv){
     snprintf(request, REQUEST_SIZE, "GET %s HTTP/1.1\nHost: %s\n\n", path, host); 
     if (send(sockfd, request, strlen(request), 0) == -1){
         perror("Send");
-        return 7;
+        return SEND_FAILURE;
     }
     
     char * buffers[MAX_BUFFERS] = {0};
@@ -108,8 +117,8 @@ int main(int argc, char ** argv){
     while(1){
         if (poll(poll_set, numfds, TIMEOUT) == -1){
             perror("poll");
-            tcsetattr(STDIN_FILENO, TCSANOW, &old);
-            return 2;
+            clear_before_exit(buffers, &old);
+            return POLL_FAILURE;
         }
         if (socketIsOpen && poll_set[SOCKET_IND].revents & POLLIN){
             prevBuffer = current_buffer;
@@ -120,8 +129,8 @@ int main(int argc, char ** argv){
             int r = -1;
             if (isReadable && ((r = recv(poll_set[SOCKET_IND].fd, buffers[current_buffer], LINES_ON_SCREEN * ONE_LINE_SIZE, 0)) == -1)){
                 perror("Recv");
-                tcsetattr(STDIN_FILENO, TCSANOW, &old);
-                return 5;
+                clear_before_exit(buffers, &old);
+                return SOCKET_INPUT_ERROR;
             }
             if (r == 0){
                 close(poll_set[SOCKET_IND].fd);
@@ -135,14 +144,13 @@ int main(int argc, char ** argv){
             char c = 0;
             if (read(0, &c, 1) == -1){
                 perror("Read");
-                tcsetattr(STDIN_FILENO, TCSANOW, &old);
-                return 1;
+                clear_before_exit(buffers, &old);
+                return STDIN_INPUT_ERROR;
             }
             if (c == ' '){
                 if (!socketIsOpen && buffers[(user_current_buffer + 1) % MAX_BUFFERS] == NULL){
                     printf("END\n");
-                    tcsetattr(STDIN_FILENO, TCSANOW, &old);
-                    return 0;  
+                    break;
                 }
                 if (buffers[user_current_buffer]){
                     printf("%s\n", buffers[user_current_buffer]);
@@ -153,13 +161,11 @@ int main(int argc, char ** argv){
                 }
             }
             else if (c == 'q'){
-                tcsetattr(STDIN_FILENO, TCSANOW, &old);
-                free_buffers(buffers);
                 close(sockfd);
-                return 0;
+                break;
             }
         }
     }
-    tcsetattr(STDIN_FILENO, TCSANOW, &old);
+    clear_before_exit(buffers, &old);
     return 0;
 }
