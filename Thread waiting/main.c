@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <string.h>
 
 void * threadFunction(void * param){
     printf("6\n");
@@ -11,8 +12,9 @@ void * threadFunction(void * param){
 
 int main(int argc, char ** argv) {
     pthread_t thread;
-    if (pthread_create(&thread, NULL, threadFunction, NULL) != 0){
-        perror("Thread creation");
+    int err = pthread_create(&thread, NULL, threadFunction, NULL);
+    if (err){
+        printf("Error №%d: %s\n", err, strerror(err));
     }
     pthread_join(thread, NULL);
     printf("1\n");

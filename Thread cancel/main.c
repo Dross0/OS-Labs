@@ -1,22 +1,24 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <string.h>
 
 void * thread_print(void * param){
     char symbol = 'A';
     while (1){
+        pthread_testcancel();
         printf("%c", symbol);
         if (++symbol == 'z'){
             symbol = 'A';
         }
-        pthread_testcancel();
     }
 }
 
 int main() {
     pthread_t thread;
-    if (pthread_create(&thread, NULL, thread_print, NULL) != 0){
-        perror("Thread create");
+    int err = pthread_create(&thread, NULL, thread_print, NULL);
+    if (err){
+        printf("Error №%d: %s\n", err, strerror(err));
     }
     sleep(2);
     pthread_cancel(thread);

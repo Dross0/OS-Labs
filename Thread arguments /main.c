@@ -1,10 +1,18 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <string.h>
+
 
 void * printStringArray(void * param){
     char ** stringArray = (char **) param;
     for (char ** currentString = stringArray; *currentString != NULL; ++currentString){
         printf("%s\n", *currentString);
+    }
+}
+
+void errorHandling(int err){
+    if (err){
+        printf("Error №%d: %s\n", err, strerror(err));
     }
 }
 
@@ -17,18 +25,13 @@ int main(int argc, char ** argv) {
     char * stringArray2[] = {"4", "5", "6", "7", "8", NULL};
     char * stringArray3[] = {"9", "10", NULL};
     char * stringArray4[] = {"11", "12", "13", NULL};
-    if (pthread_create(&thread1, NULL, printStringArray, &stringArray1) != 0){
-        perror("Thread 1 creation error");
-    }
-    pthread_join(thread1, NULL);
-    if (pthread_create(&thread2, NULL, printStringArray, stringArray2) != 0){
-        perror("Thread 2 creation error");
-    }
-    if (pthread_create(&thread3, NULL, printStringArray, stringArray3) != 0){
-        perror("Thread 3 creation error");
-    }
-    if (pthread_create(&thread4, NULL, printStringArray, stringArray4) != 0){
-        perror("Thread 4 creation error");
-    }
+    int err = pthread_create(&thread1, NULL, printStringArray, stringArray1);
+    errorHandling(err);
+    err = pthread_create(&thread2, NULL, printStringArray, stringArray2);
+    errorHandling(err);
+    err = pthread_create(&thread3, NULL, printStringArray, stringArray3);
+    errorHandling(err);
+    err = pthread_create(&thread4, NULL, printStringArray, stringArray4);
+    errorHandling(err);
     pthread_exit(NULL);
 }
