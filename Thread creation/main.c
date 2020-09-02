@@ -19,6 +19,5 @@ int main(int argc, char ** argv) {
     printf("3\n");
     printf("4\n");
     printf("5\n");
-    // Выводит не все строки нити, так как вызывается return из main(), логично добавить pthread_join()
-    return 0;
+    pthread_exit(NULL);
 }
