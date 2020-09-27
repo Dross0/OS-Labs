@@ -56,7 +56,7 @@
 4. [Принудительное завершение нити](https://github.com/Dross0/OS/tree/master/Thread%20cancel)
 5. [Обработка завершения нити](https://github.com/Dross0/OS/tree/master/Thread%20exit%20handle)
 6. ~~[Многопоточный cp -R](#)~~
-7. ~~[Вычисление Пи](#)~~
+7. [Вычисление Пи](https://github.com/Dross0/OS/blob/master/Calculating%20Pi)
 8. ~~[Вычисление Пи пока не надоест](#)~~
 9. ~~[Обедающие философы](#)~~
 10. ~~[Синхронизированный вывод](#)~~
