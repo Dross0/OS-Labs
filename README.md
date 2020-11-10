@@ -1,5 +1,5 @@
 # Лабораторные работы по курсу Операционные системы НГУ
-## Часть 1. Системные вызовы и библиотеки Unix SVR4
+## Часть 1. Системные вызовы и библиотеки Unix SVR4 - [Условия](https://github.com/Dross0/OS/blob/master/First%20part.pdf)
 ### Среда исполнения
 1. [Вывод различных атрибутов процесса в соответствии с указанными опциями](https://github.com/Dross0/OS/tree/master/Process%20properties)
 2. [Время в Калифорнии](https://github.com/Dross0/OS/tree/master/California%20time)
@@ -49,7 +49,7 @@
 36. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
 37. ~~[Псевдомногопоточный HTTP-клиент 2](#)~~
 
-## Часть 2. Программирование с использованием POSIX Thread Library
+## Часть 2. Программирование с использованием POSIX Thread Library - [Условия](https://github.com/Dross0/OS/blob/master/Second%20part.pdf)
 1. [Создание нити](https://github.com/Dross0/OS/tree/master/Thread%20creation)
 2. [Ожидание нити](https://github.com/Dross0/OS/tree/master/Thread%20waiting)
 3. [Параметры нити](https://github.com/Dross0/OS/tree/master/Thread%20arguments%20)
