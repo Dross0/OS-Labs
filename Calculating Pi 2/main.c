@@ -3,12 +3,14 @@
 #include <string.h>
 #include <pthread.h>
 #include <signal.h>
+#include <unistd.h>
 
-
-#define TASK_BLOCK_SIZE 100000
+#define TASK_BLOCK_SIZE 1000
 
 static pthread_barrier_t barrier;
 static int exit_flag = 0;
+static int barrierIsDestroyed = 0;
+pthread_mutex_t mutex;
 
 typedef struct threadArgument{
     long startIndex;
@@ -23,27 +25,36 @@ void * countPartPI(void * param){
     long threadIterCount = 0;
     int status = 0;
     while (!exit_flag){
-        for (long i = taskIndex; i < TASK_BLOCK_SIZE; i++, threadIterCount++){
+        
+        for (long i = taskIndex; i < taskIndex + TASK_BLOCK_SIZE; i++, threadIterCount++){
             pi += 1.0 / (i * 4.0 + 1.0);
             pi -= 1.0 / (i * 4.0 + 3.0);
         }
         taskIndex += threadParams->stepSize;
+        printf("1 block for %d thread\n", threadParams->startIndex / TASK_BLOCK_SIZE);
         status = pthread_barrier_wait(&barrier);
-        if (status != 0){
+        if (status != 0 && status != PTHREAD_BARRIER_SERIAL_THREAD){
+           printf("error wait barrier in thread with status = %d\n", status);
+           exit(5);
+       }
+    }
+    if (!barrierIsDestroyed){
+        usleep(1);
+        pthread_mutex_lock(&mutex);
+        barrierIsDestroyed = 1;
+        pthread_mutex_unlock(&mutex);
+        status = pthread_barrier_wait(&barrier);
+        if (status == PTHREAD_BARRIER_SERIAL_THREAD) {
+            pthread_barrier_destroy(&barrier);
+        } else if (status != 0) {
             printf("error wait barrier in thread with status = %d\n", status);
             exit(5);
         }
     }
-    status = pthread_barrier_wait(&barrier);
-    if (status == PTHREAD_BARRIER_SERIAL_THREAD) {
-        pthread_barrier_destroy(&barrier);
-    } else if (status != 0) {
-        printf("error wait barrier in thread with status = %d\n", status);
-        exit(5);
-    }
+    pthread_mutex_unlock(&mutex);
     pi *= 4;
     threadParams->result = pi;
-    printf("thread make %ld  = %.10f\n", threadIterCount, pi);
+    printf("%d thread make %ld  = %.10f\n", threadParams->startIndex / TASK_BLOCK_SIZE,threadIterCount, pi);
     pthread_exit(NULL);
 }
 
@@ -64,6 +75,7 @@ int main(int argc, char ** argv){
 
     signal(SIGINT, signalHandler);
 
+    pthread_mutex_init(&mutex, NULL);
     int status = pthread_barrier_init(&barrier, NULL, pthreadCount);
     if (status != 0) {
         printf("main error: can't init barrier, status = %d\n", status);
@@ -90,6 +102,7 @@ int main(int argc, char ** argv){
         pi += numStepsForThread[i].result;
     }
     printf("PI = %.10f\n", pi);
+    pthread_mutex_destroy(&mutex);
     free(threads);
     free(numStepsForThread);
     return 0;
