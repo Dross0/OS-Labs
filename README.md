@@ -1,5 +1,5 @@
-# Лабораторные работы по курсу Операционные системы НГУ
-## Часть 1. Системные вызовы и библиотеки Unix SVR4 - [Условия](https://github.com/Dross0/OS/blob/master/First%20part.pdf)
+# Лабораторные работы по курсу "Операционные системы" НГУ
+## Часть 1. Системные вызовы и библиотеки Unix SVR4 - [Условия](http://ccfit.nsu.ru/~fat/svr4tasks-new.html)
 ### Среда исполнения
 1. [Вывод различных атрибутов процесса в соответствии с указанными опциями](https://github.com/Dross0/OS/tree/master/Process%20properties)
 2. [Время в Калифорнии](https://github.com/Dross0/OS/tree/master/California%20time)
