@@ -1,5 +1,5 @@
 # Лабораторные работы по курсу "Операционные системы" НГУ
-## Часть 1. Системные вызовы и библиотеки Unix SVR4 - [Условия](http://ccfit.nsu.ru/~fat/svr4tasks-new.html)
+## Часть 1. Системные вызовы и библиотеки Unix SVR4 - [Условия](https://github.com/Dross0/OS/blob/master/First%20part.pdf)
 ### Среда исполнения
 1. [Вывод различных атрибутов процесса в соответствии с указанными опциями](https://github.com/Dross0/OS/tree/master/Process%20properties)
 2. [Время в Калифорнии](https://github.com/Dross0/OS/tree/master/California%20time)
@@ -78,6 +78,6 @@
 26. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
 27. ~~[Псевдомногопоточный HTTP-клиент 2](#)~~
 28. ~~[Многопоточный HTTP-клиент](#)~~
-29. ~~[Псевдомногопоточный кэширующий прокси](#)~~
-30. ~~[Многопоточный кэширующий прокси](#)~~
+29. [Псевдомногопоточный кэширующий прокси](https://github.com/Dross0/OS/tree/master/CacheProxy)
+30. [Многопоточный кэширующий прокси](https://github.com/Dross0/OS/tree/master/CacheProxyWithThreads)
 31. ~~[Многопоточный кэширующий прокси с рабочими потоками](#)~~
