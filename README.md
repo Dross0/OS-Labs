@@ -75,7 +75,7 @@
 23. [Производитель-потребитель](https://github.com/Dross0/OS-Labs/tree/master/Producer-Consumer%201)
 24. [Производитель-потребитель 2](https://github.com/Dross0/OS-Labs/tree/master/Producer-Consumer%202)
 25. [Многопоточный сервер](https://github.com/Dross0/OS-Labs/tree/master/Multithreaded%20server)
-26. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
+26. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS-Labs/tree/master/HTTP%20Client%201)
 27. [Псевдомногопоточный HTTP-клиент 2](https://github.com/Dross0/OS-Labs/tree/master/HTTP%20Client%202)
 28. [Многопоточный HTTP-клиент](https://github.com/Dross0/OS-Labs/tree/master/Multithreaded%20HTTP%20Client)
 29. [Псевдомногопоточный кэширующий прокси](https://github.com/Dross0/OS/tree/master/CacheProxy)
