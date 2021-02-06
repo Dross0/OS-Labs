@@ -46,8 +46,8 @@
 33. ~~[Прокси-сервер](#)~~
 34. ~~[Проброс порта](#)~~
 35. ~~[Проброс порта](#)~~
-36. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
-37. ~~[Псевдомногопоточный HTTP-клиент 2](#)~~
+36. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS-Labs/tree/master/HTTP%20Client%201)
+37. [Псевдомногопоточный HTTP-клиент 2](https://github.com/Dross0/OS-Labs/tree/master/HTTP%20Client%202)
 
 ## Часть 2. Программирование с использованием POSIX Thread Library - [Условия](https://github.com/Dross0/OS/blob/master/Second%20part.pdf)
 1. [Создание нити](https://github.com/Dross0/OS/tree/master/Thread%20creation)
@@ -55,10 +55,10 @@
 3. [Параметры нити](https://github.com/Dross0/OS/tree/master/Thread%20arguments%20)
 4. [Принудительное завершение нити](https://github.com/Dross0/OS/tree/master/Thread%20cancel)
 5. [Обработка завершения нити](https://github.com/Dross0/OS/tree/master/Thread%20exit%20handle)
-6. ~~[Многопоточный cp -R](#)~~
+6. [Многопоточный cp -R](https://github.com/Dross0/OS-Labs/tree/master/Recursive%20CP)
 7. [Вычисление Пи](https://github.com/Dross0/OS/blob/master/Calculating%20Pi)
 8. [Вычисление Пи пока не надоест](https://github.com/Dross0/OS/tree/master/Calculating%20Pi%202)
-9. [Обедающие философы](https://github.com/Dross0/OS/tree/master/Dining%20philosophers)
+9. [Обедающие философы](https://github.com/Dross0/OS-Labs/tree/master/Dining%20philosophers%201)
 10. [Синхронизированный вывод](https://github.com/Dross0/OS/tree/master/Sync%20output)
 11. [Синхронизированный вывод 2](https://github.com/Dross0/OS/tree/master/3%20mutex%20for%20sync%20output%20proof)
 12. [Синхронизированный вывод 3](https://github.com/Dross0/OS/tree/master/Sync%20output%202)
@@ -67,17 +67,17 @@
 15. [Синхронизированный вывод двух процессов](https://github.com/Dross0/OS/tree/master/Sync%20output%204)
 16. [Синхронизированный доступ к списку](https://github.com/Dross0/OS/tree/master/Sync%20List)
 17. [Синхронизированный доступ к списку 2](https://github.com/Dross0/OS/tree/master/Sync%20List%202)
-18. ~~[Синхронизированный доступ к списку 3](#)~~
-19. ~~[Использование блокировки чтения-записи](#)~~
-20. ~~[Использование блокировки чтения-записи 2](#)~~
-21. ~~[Обедающие философы 2](#)~~
-22. ~~[Производственная линия](#)~~
-23. ~~[Производитель-потребитель](#)~~
-24. ~~[Производитель-потребитель 2](#)~~
-25. ~~[Многопоточный сервер](#)~~
+18. [Синхронизированный доступ к списку 3](https://github.com/Dross0/OS-Labs/tree/master/Sync%20List%203)
+19. [Использование блокировки чтения-записи](https://github.com/Dross0/OS-Labs/tree/master/Read:Write%20Lock%201)
+20. [Использование блокировки чтения-записи 2](https://github.com/Dross0/OS-Labs/tree/master/Read:Write%20Lock%202)
+21. [Обедающие философы 2](https://github.com/Dross0/OS-Labs/tree/master/Dining%20philosophers%202)
+22. [Производственная линия](https://github.com/Dross0/OS-Labs/tree/master/Production%20Line)
+23. [Производитель-потребитель](https://github.com/Dross0/OS-Labs/tree/master/Producer-Consumer%201)
+24. [Производитель-потребитель 2](https://github.com/Dross0/OS-Labs/tree/master/Producer-Consumer%202)
+25. [Многопоточный сервер](https://github.com/Dross0/OS-Labs/tree/master/Multithreaded%20server)
 26. [Псевдомногопоточный HTTP-клиент](https://github.com/Dross0/OS/tree/master/http%20client)
-27. ~~[Псевдомногопоточный HTTP-клиент 2](#)~~
-28. ~~[Многопоточный HTTP-клиент](#)~~
+27. [Псевдомногопоточный HTTP-клиент 2](https://github.com/Dross0/OS-Labs/tree/master/HTTP%20Client%202)
+28. [Многопоточный HTTP-клиент](https://github.com/Dross0/OS-Labs/tree/master/Multithreaded%20HTTP%20Client)
 29. [Псевдомногопоточный кэширующий прокси](https://github.com/Dross0/OS/tree/master/CacheProxy)
 30. [Многопоточный кэширующий прокси](https://github.com/Dross0/OS/tree/master/CacheProxyWithThreads)
-31. ~~[Многопоточный кэширующий прокси с рабочими потоками](#)~~
+31. [Многопоточный кэширующий прокси с рабочими потоками](https://github.com/Dross0/OS-Labs/tree/master/Cache%20Proxy%20With%20Working%20Threads)
