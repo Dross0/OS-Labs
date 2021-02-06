@@ -196,7 +196,6 @@ void readToCache(
         offset += read_bytes;
         if(DEBUG)printf("[DEBUG]: cache[%d].page size = %d\n", currentCacheSize , cache[currentCacheSize].page_size);
         if(DEBUG)printf("[DEBUG]: read_bytes = %d. offset = %d\n", read_bytes, offset);
-        //if(offset > 2048) break;
         cache[currentCacheSize].page_size = offset;
         cache[currentCacheSize].page = (char*)realloc(cache[currentCacheSize].page, offset + BUFFER_SIZE + 1);
     }
@@ -276,10 +275,10 @@ int main(int argc, char *argv[]) {
 
     listenfd = socket(AF_INET, SOCK_STREAM, 0);
 
-    int clients[MAX_CLIENTS_AMOUNT];                   //    int* clients = (int*)malloc(MAX_CLIENTS_AMOUNT * sizeof(int));
-    int clientsHttpSockets[MAX_CLIENTS_AMOUNT];        //    int* clientsHttpSockets = (int*)malloc(MAX_CLIENTS_AMOUNT * sizeof(int));
-    int cacheToClient[MAX_CLIENTS_AMOUNT];             //    int* cacheToClient = (int*)malloc(MAX_CLIENTS_AMOUNT * sizeof(int));
-    int sentBytes[MAX_CLIENTS_AMOUNT];                 //    int* sentBytes = (int*)malloc(MAX_CLIENTS_AMOUNT * sizeof(int));
+    int clients[MAX_CLIENTS_AMOUNT];                   
+    int clientsHttpSockets[MAX_CLIENTS_AMOUNT];        
+    int cacheToClient[MAX_CLIENTS_AMOUNT];             
+    int sentBytes[MAX_CLIENTS_AMOUNT];            
 
 
     for(int k = 0; k < MAX_CLIENTS_AMOUNT; k++) {
@@ -321,7 +320,7 @@ int main(int argc, char *argv[]) {
             FD_ZERO(&cfds);
             FD_SET(clients[clientIndex], &cfds);
 
-            if(clientsHttpSockets[clientIndex] == EMPTY || select(clients[clientIndex] + 1, &cfds, NULL, NULL, &timeout)) {
+            if(clientsHttpSockets[clientIndex] == EMPTY && select(clients[clientIndex] + 1, &cfds, NULL, NULL, &timeout)) {  //may ||
                 char urlBuffer[ADDRESS_BUF_SIZE];
                 int read_bytes = read(clients[clientIndex], &urlBuffer, ADDRESS_BUF_SIZE);
                 if(read_bytes) {
